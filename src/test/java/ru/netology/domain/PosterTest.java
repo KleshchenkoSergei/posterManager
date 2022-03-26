@@ -21,64 +21,64 @@ class PosterTest {
     Manager manager = new Manager(repo);
 
     @Test
-    public void addNewNoFilm() {
+    public void shouldAddNewNoFilm() {
 
-        manager.add(item1);
+        repo.save(item1);
 
         Poster[] expected = {item1};
-        Poster[] actual = manager.getAll();
+        Poster[] actual = repo.findAll();
 
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void addNewYesFilm() {
+    public void shouldAddNewYesFilm() {
 
-        manager.add(item1);
+        repo.save(item1);
 
-        manager.add(item2);
+        repo.save(item2);
 
         Poster[] expected = {item1, item2};
-        Poster[] actual = manager.getAll();
+        Poster[] actual = repo.findAll();
 
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void findAll() {
+    public void shouldFindAll() {
 
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
-        manager.add(item7);
-        manager.add(item8);
-        manager.add(item9);
-        manager.add(item10);
-        manager.add(item11);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+        repo.save(item4);
+        repo.save(item5);
+        repo.save(item6);
+        repo.save(item7);
+        repo.save(item8);
+        repo.save(item9);
+        repo.save(item10);
+        repo.save(item11);
 
         Poster[] expected = {item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11};
-        Poster[] actual = manager.getAll();
+        Poster[] actual = repo.findAll();
 
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void findLastDefault() {
+    public void shouldFindLastDefault() {
 
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
-        manager.add(item7);
-        manager.add(item8);
-        manager.add(item9);
-        manager.add(item10);
-        manager.add(item11);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+        repo.save(item4);
+        repo.save(item5);
+        repo.save(item6);
+        repo.save(item7);
+        repo.save(item8);
+        repo.save(item9);
+        repo.save(item10);
+        repo.save(item11);
 
         Poster[] expected = {item11, item10, item9, item8, item7, item6, item5, item4, item3, item2};
         Poster[] actual;
@@ -88,20 +88,20 @@ class PosterTest {
     }
 
     @Test
-    public void findLastFilmsLowLimit() {
+    public void shouldFindLastFilmsLowLimit() {
 
         Manager manager = new Manager(5, repo);
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
-        manager.add(item7);
-        manager.add(item8);
-        manager.add(item9);
-        manager.add(item10);
-        manager.add(item11);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+        repo.save(item4);
+        repo.save(item5);
+        repo.save(item6);
+        repo.save(item7);
+        repo.save(item8);
+        repo.save(item9);
+        repo.save(item10);
+        repo.save(item11);
 
         Poster[] expected = {item11, item10, item9, item8, item7};
         Poster[] actual;
@@ -111,15 +111,15 @@ class PosterTest {
     }
 
     @Test
-    public void findLastFilmsOverLimit() {
+    public void shouldFindLastFilmsOverLimit() {
 
         Manager manager = new Manager(8, repo);
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+        repo.save(item4);
+        repo.save(item5);
+        repo.save(item6);
 
         Poster[] expected = {item6, item5, item4, item3, item2, item1};
         Poster[] actual;
@@ -129,15 +129,15 @@ class PosterTest {
     }
 
     @Test
-    public void findLastFilmsZero() {
+    public void shouldFindLastFilmsZero() {
 
         Manager manager = new Manager(0, repo);
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+        repo.save(item4);
+        repo.save(item5);
+        repo.save(item6);
 
         Poster[] expected = {};
         Poster[] actual;
@@ -147,15 +147,15 @@ class PosterTest {
     }
 
     @Test
-    public void findLastFilmsUnderZero() {
+    public void shouldFindLastFilmsUnderZero() {
 
         Manager manager = new Manager(-1, repo);
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+        repo.save(item4);
+        repo.save(item5);
+        repo.save(item6);
 
         Poster[] expected = {};
         Poster[] actual;
@@ -164,61 +164,61 @@ class PosterTest {
         assertArrayEquals(expected, actual);
     }
 
-//    @Test
-//    public void getSum() {
-//
-//        manager.add(item1);
-//        manager.add(item2);
-//        manager.add(item3);
-//        manager.add(item4);
-//        manager.add(item5);
-//        manager.add(item6);
-//
-//        int expected = 21;
-//
-//        int actual = manager.sum();
-//
-//        assertEquals(expected, actual);
-//    }
+    @Test
+    public void shouldGetSum() {
+
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+        repo.save(item4);
+        repo.save(item5);
+        repo.save(item6);
+
+        int expected = 21;
+
+        int actual = manager.sum();
+
+        assertEquals(expected, actual);
+    }
 
     @Test
-    public void removeById() {
+    public void shouldRemoveById() {
 
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.removeId(2);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+        repo.removeById(2);
 
         Poster[] expected = {item1, item3};
-        Poster[] actual = manager.getAll();
+        Poster[] actual = repo.findAll();
 
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void findById() {
+    public void shouldFindById() {
 
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
 
         Poster[] expected = {item3};
-        Poster[] actual = manager.findId(3);
+        Poster[] actual = repo.findById(3);
 
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void removeAll() {
+    public void shouldRemoveAll() {
 
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
 
-        manager.removeAllItems();
+        repo.removeAll();
 
         Poster[] expected = {};
-        Poster[] actual = manager.getAll();
+        Poster[] actual = repo.findAll();
 
         assertArrayEquals(expected, actual);
     }

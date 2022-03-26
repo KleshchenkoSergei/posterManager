@@ -5,6 +5,9 @@ public class Manager {
     private int itemCount = 10;
     private Repository repository;
 
+    public Manager() {
+    }
+
     public Manager(Repository repository) {
         this.repository = repository;
     }
@@ -48,13 +51,13 @@ public class Manager {
         this.repository = repository;
     }
 
-//    public int sum() {
-//        int result = 0;
-//        for (Poster item : repository.findAll()) {
-//            result = result + item.getId();
-//        }
-//        return result;
-//    }
+    public int sum() {
+        int result = 0;
+        for (Poster item : repository.findAll()) {
+            result = result + item.getId();
+        }
+        return result;
+    }
 
     public Poster[] findLast() {
         int length;
