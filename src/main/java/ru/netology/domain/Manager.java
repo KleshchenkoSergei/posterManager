@@ -3,40 +3,62 @@ package ru.netology.domain;
 public class Manager {
 
     private int itemCount = 10;
+    private Repository repository;
 
-    public Manager() {
+    public Manager(Repository repository) {
+        this.repository = repository;
     }
 
-    public Manager(int itemCount) {
+    public Manager(int itemCount, Repository repository) {
+        this.repository = repository;
         if (itemCount >= 0) {
             this.itemCount = itemCount;
         } else {
             this.itemCount = 0;
         }
-
     }
 
-    private Poster[] items = new Poster[0];
+    public void add(Poster item) {
+        repository.save(item);
+    }
 
-    public void save(Poster item) {
+    public void removeId(int id) {
+        repository.removeById(id);
+    }
 
-        int length = items.length + 1;
-        Poster[] tmp = new Poster[length];
-//        for (int i = 0; i < items.length; i++) {
-//            tmp[i] = items[i];
+    public void removeAllItems() {
+        repository.removeAll();
+    }
+
+    public Poster[] getAll() {
+        Poster[] result = repository.findAll();
+        return result;
+    }
+
+    public Poster[] findId(int id) {
+        Poster[] result = repository.findById(id);
+        return result;
+    }
+
+    public Repository getRepository() {
+        return repository;
+    }
+
+    public void setRepository(Repository repository) {
+        this.repository = repository;
+    }
+
+//    public int sum() {
+//        int result = 0;
+//        for (Poster item : repository.findAll()) {
+//            result = result + item.getId();
 //        }
-        System.arraycopy(items, 0, tmp, 0, items.length);
-        int lastIndex = tmp.length - 1;
-        tmp[lastIndex] = item;
-        items = tmp;
-    }
-
-    public Poster[] findAll() {
-        return items;
-    }
+//        return result;
+//    }
 
     public Poster[] findLast() {
         int length;
+        Poster[] items = repository.findAll();
         if (itemCount <= items.length) {
             length = itemCount;
         } else {
@@ -49,4 +71,6 @@ public class Manager {
         items = tmp;
         return items;
     }
+
+
 }
