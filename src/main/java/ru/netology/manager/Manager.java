@@ -1,4 +1,7 @@
-package ru.netology.domain;
+package ru.netology.manager;
+
+import ru.netology.domain.Poster;
+import ru.netology.repository.Repository;
 
 public class Manager {
 
@@ -49,14 +52,6 @@ public class Manager {
 
     public void setRepository(Repository repository) {
         this.repository = repository;
-    }
-
-    public int sum() {
-        int result = 0;
-        for (Poster item : repository.findAll()) {
-            result = result + item.getId();
-        }
-        return result;
     }
 
     public Poster[] findLast() {

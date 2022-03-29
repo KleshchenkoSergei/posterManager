@@ -1,17 +1,13 @@
-package ru.netology.domain;
+package ru.netology.repository;
+
+import ru.netology.domain.Poster;
 
 public class Repository {
-
-    private int itemCount = 10;
 
     public Repository() {
     }
 
     private Poster[] items = new Poster[0];
-
-    public Repository(Repository repository) {
-
-    }
 
     public void save(Poster item) {
 
@@ -32,13 +28,10 @@ public class Repository {
 
     //removeById
     public void removeById(int id) {
-        int length = items.length - 1;
-        Poster[] tmp = new Poster[length];
-        int index = 0;
+        Poster[] tmp = new Poster[1];
         for (Poster item : items) {
-            if (item.getId() != id) {
-                tmp[index] = item;
-                index++;
+            if (item.getId() == id) {
+                tmp[0] = item;
             }
         }
         items = tmp;
@@ -46,14 +39,10 @@ public class Repository {
 
     //findById
     public Poster[] findById(int id) {
-        //int length = items.length - 1;
         Poster[] tmp = new Poster[1];
-        // int index = 0;
         for (Poster item : items) {
             if (item.getId() == id) {
                 tmp[0] = item;
-            } else {
-                tmp[0] = null;
             }
         }
         items = tmp;
