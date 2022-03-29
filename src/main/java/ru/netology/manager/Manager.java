@@ -1,8 +1,12 @@
-package ru.netology.domain;
+package ru.netology.manager;
+
+import ru.netology.domain.Poster;
 
 public class Manager {
 
     private int itemCount = 10;
+
+    private Poster[] items = new Poster[0];
 
     public Manager() {
     }
@@ -13,10 +17,7 @@ public class Manager {
         } else {
             this.itemCount = 0;
         }
-
     }
-
-    private Poster[] items = new Poster[0];
 
     public void save(Poster item) {
 
@@ -37,8 +38,9 @@ public class Manager {
 
     public Poster[] findLast() {
         int length;
-        if (itemCount <= items.length) {
-            length = itemCount;
+        int itemCountValue = itemCount;
+        if (itemCountValue <= items.length) {
+            length = itemCountValue;
         } else {
             length = items.length;
         }
