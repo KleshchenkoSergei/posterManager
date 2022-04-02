@@ -4,10 +4,10 @@ import ru.netology.domain.Poster;
 
 public class Repository {
 
+    private Poster[] items = new Poster[0];
+
     public Repository() {
     }
-
-    private Poster[] items = new Poster[0];
 
     public void save(Poster item) {
 
@@ -35,8 +35,6 @@ public class Repository {
                 tmp[index] = item;
                 index++;
             }
-
-
         }
         items = tmp;
     }
