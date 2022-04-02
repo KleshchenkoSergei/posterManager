@@ -28,11 +28,15 @@ public class Repository {
 
     //removeById
     public void removeById(int id) {
-        Poster[] tmp = new Poster[1];
+        int index = 0;
+        Poster[] tmp = new Poster[items.length-1];
         for (Poster item : items) {
-            if (item.getId() == id) {
-                tmp[0] = item;
+            if (item.getId() != id) {
+                tmp[index] = item;
+                index++;
             }
+
+
         }
         items = tmp;
     }

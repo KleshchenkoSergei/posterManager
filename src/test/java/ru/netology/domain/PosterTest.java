@@ -184,9 +184,9 @@ class PosterTest {
         repo.save(item1);
         repo.save(item2);
         repo.save(item3);
-        repo.removeById(1);
+        repo.removeById(2);
 
-        Poster[] expected = {item1};
+        Poster[] expected = {item1, item3};
         Poster[] actual = repo.findAll();
 
         assertArrayEquals(expected, actual);
