@@ -41,10 +41,10 @@ public class Manager {
         return result;
     }
 
-    public Poster[] findId(int id) {
-        Poster[] result = repository.findById(id);
-        return result;
-    }
+//    public Poster[] findId(int id) {
+//        Poster[] result = repository.findById(id);
+//        return result;
+//    }
 
     public Repository getRepository() {
         return repository;
@@ -66,8 +66,8 @@ public class Manager {
         for (int i = 0; i < length; i++) {
             tmp[i] = items[items.length - i - 1];
         }
-        items = tmp;
-        return items;
+        Poster[] result = tmp;
+        return result;
     }
 
 

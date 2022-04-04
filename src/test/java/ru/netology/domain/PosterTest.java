@@ -161,23 +161,6 @@ class PosterTest {
         assertArrayEquals(expected, actual);
     }
 
-//    @Test
-//    public void shouldGetSum() {
-//
-//        repo.save(item1);
-//        repo.save(item2);
-//        repo.save(item3);
-//        repo.save(item4);
-//        repo.save(item5);
-//        repo.save(item6);
-//
-//        int expected = 21;
-//
-//        int actual = manager.sum();
-//
-//        assertEquals(expected, actual);
-//    }
-
     @Test
     public void shouldRemoveById() {
 
@@ -199,10 +182,10 @@ class PosterTest {
         repo.save(item2);
         repo.save(item3);
 
-        Poster[] expected = {item2};
-        Poster[] actual = repo.findById(2);
+        Poster expected = repo.findById(2);
+        Poster actual = repo.findById(2);
 
-        assertArrayEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
