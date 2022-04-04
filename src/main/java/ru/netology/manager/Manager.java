@@ -38,9 +38,8 @@ public class Manager {
 
     public Poster[] findLast() {
         int length;
-        int itemCountValue = itemCount;
-        if (itemCountValue <= items.length) {
-            length = itemCountValue;
+        if (itemCount <= items.length) {
+            length = itemCount;
         } else {
             length = items.length;
         }
@@ -48,7 +47,7 @@ public class Manager {
         for (int i = 0; i < length; i++) {
             tmp[i] = items[items.length - i - 1];
         }
-        items = tmp;
-        return items;
+        Poster[] result = tmp;
+        return result;
     }
 }
