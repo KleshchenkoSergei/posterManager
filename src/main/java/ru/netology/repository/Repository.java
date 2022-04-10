@@ -28,7 +28,7 @@ public class Repository {
 
     public void removeById(int id) {
         int index = 0;
-        Poster[] tmp = new Poster[items.length-1];
+        Poster[] tmp = new Poster[items.length - 1];
         for (Poster item : items) {
             if (item.getId() != id) {
                 tmp[index] = item;
@@ -39,13 +39,14 @@ public class Repository {
     }
 
     public Poster findById(int id) {
-        Poster[] tmp = new Poster[1];
+        Poster tmp;
+        Poster result = null;
         for (Poster item : items) {
             if (item.getId() == id) {
-                tmp[0] = item;
+                tmp = item;
+                result = tmp;
             }
         }
-        Poster result = tmp[0];
         return result;
     }
 

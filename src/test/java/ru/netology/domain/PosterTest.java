@@ -182,10 +182,30 @@ class PosterTest {
         repo.save(item2);
         repo.save(item3);
 
-        Poster expected = repo.findById(2);
+        Poster expected = item2;
         Poster actual = repo.findById(2);
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindByIdNoMatches() {
+
+        repo.save(item1);
+        repo.save(item2);
+        repo.save(item3);
+
+        Poster actual = repo.findById(4);
+
+        assertEquals(null, actual);
+    }
+
+    @Test
+    public void shouldFindByIdEmpty() {
+
+        Poster actual = repo.findById(4);
+
+        assertEquals(null, actual);
     }
 
     @Test
